@@ -25,6 +25,7 @@ const [match, setMatch] = useState((location.state == null )
 );
 const [homePlayers, setHomePlayers] = useState([]);
 const [awayPlayers, setAwayPlayers] = useState([]);
+const [qualityPoints, setQualityPoints] = useState([]);
 const [games, setGames] = useState([]);
 useEffect(() => {
       fetch('http://localhost:8080/api/v1/player', {
@@ -70,6 +71,26 @@ useEffect(() => {
            .catch((error) => {
                console.log('error: ' + error);
              });
+           fetch('http://localhost:8080/api/v1/qualities/get', {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                      "match":{"id":match.id}
+                      }),
+              })
+                .then((response) => {
+                   if(!response.ok) throw new Error(response.status);
+                    else return response.json()
+                })
+                .then((data) => {
+                    setQualityPoints(data);
+                })
+                .catch((error) => {
+                    console.log('error: ' + error);
+                  });
 
       fetch('http://localhost:8080/api/v1/game', {
          method: 'POST',
@@ -86,7 +107,6 @@ useEffect(() => {
              else return response.json()
          })
          .then((data) => {
-            //console.log("get Games: " + JSON.stringify(data))
              setGames(data);
          })
          .catch((error) => {
@@ -96,57 +116,56 @@ useEffect(() => {
 
 const handleGameDataChange = (event, game, gameIndex) => {
     let parentGameIndex = 0;
-    //let didUpdateGame = false;
-    //console.log("games (before): " + JSON.stringify(games));
     game[event.target.name] =  event.target.value;
     game["key"] = gameIndex;
-    //console.log("game: " + JSON.stringify(game));
     let arrayIndex = games.findIndex(parentGame => {
-        //console.log("parentGame.gameType.id: " + parentGame.gameType.id);
-        //console.log("parentGame.key: " + parentGame.key);
         if((parentGame.gameType.id == game.gameType.id) && (parentGame.key == gameIndex) ){
             return true;
         } else {return false;}
     });
-    //console.log("arrayIndex: " + arrayIndex);
     let gameFound = (arrayIndex == -1)?false:true;
-    //const updatedGames = games.map((parentGame, index) => {
-        //console.log("gameIndex: " + gameIndex);
-        //console.log("game.isDoubles: " + game.isDoubles);
-    //    if(parentGame != null){
-            //console.log("parentGameIndex: " + parentGameIndex);
-           // console.log("parentGame.isDoubles: " + parentGame.isDoubles);
-            //console.log("game.isDoubles: " + (game.isDoubles));
-            //console.log("parentGame.doubles: " + parentGame.doubles);
-            //console.log("game.doubles: " + (game.doubles));
-            //console.log("parentGame.doubles == game.isDoubles: " + (parentGame.doubles == game.isDoubles));
-    //        }
-    //    if((parentGame != null) && (parentGame.gameType.id == game.gameType.id) && (parentGame.isDoubles === game.isDoubles)){
-    //        if(gameIndex == parentGameIndex){
-    //            console.log("Found parent Game!");
-    //            didUpdateGame = true;
-    //            return game;
-    //        } else {
-    //            parentGameIndex = parentGameIndex++;
-    //        }
-    //    } else {
-    //        return parentGame;
-    //    }
-    //});
-    //setGames(updatedGames);
     if(!gameFound){
         console.log("adding new Game to the games array");
         setGames(games => [...games, game]);
     } else {
         console.log("Updating Array at index: " + arrayIndex);
         games[arrayIndex] = game;
+        setGames(games => [...games]);
     }
-    //console.log("games (after): " + JSON.stringify(games));
-    //console.log("gameIndex: " + gameIndex);
+}
+
+const handleQualityDataChange = (event, quality, player) => {
+    if(quality == null){
+        quality = {};
+        quality["seasonId"] = match.seasonId;
+        quality["player"] = player;
+        quality["match"] = match;
+        quality[event.target.name] =  event.target.value;
+
+    } else {
+        quality[event.target.name] =  event.target.value;
+    }
+
+    let arrayIndex = qualityPoints.findIndex(quality => {
+        if(quality.player.id == player.id){
+            return true;
+        } else {return false;}
+    });
+    let qualityFound = (arrayIndex == -1)?false:true;
+    if(!qualityFound){
+        console.log("adding new Quality to the quality array");
+        console.log("new Quality: " + JSON.stringify(quality));
+        setQualityPoints(qualityPoints => [...qualityPoints, quality]);
+    } else  {
+        console.log("Updating Array at index: " + arrayIndex);
+        qualityPoints[arrayIndex] = quality;
+        setQualityPoints(qualityPoints => [...qualityPoints]);
+    }
+
+    //console.log("qualityPoints update: " + JSON.stringify(qualityPoints));
 }
 const saveMatchData = () => {
     let nullFreeGames = games.filter(game => game != null);
-    //console.log("Saving the Match Data (games): " + JSON.stringify(nullFreeGames));
     fetch('http://localhost:8080/api/v1/games', {
        method: 'POST',
        headers: {
@@ -165,6 +184,22 @@ const saveMatchData = () => {
        .catch((error) => {
            console.log('error: ' + error);
          });
+
+    fetch('http://localhost:8080/api/v1/qualities/update', {
+           method: 'POST',
+           headers: {
+             Accept: 'application/json',
+             'Content-Type': 'application/json',
+           },
+           body: JSON.stringify(qualityPoints),
+         })
+           .then((response) => {
+              if(!response.ok) throw new Error(response.status);
+               else return response.json()
+           })
+           .catch((error) => {
+               console.log('error: ' + error);
+             });
 };
 
     return (
@@ -243,12 +278,16 @@ const saveMatchData = () => {
                     <QualityTable
                         tableName="Home Team"
                         players={homePlayers}
+                        qualities={qualityPoints}
+                        onChange={handleQualityDataChange}
                     />
                 </div>
                 <div class="col-md-6">
                     <QualityTable
                         tableName="Away Team"
                         players={awayPlayers}
+                        qualities={qualityPoints}
+                        onChange={handleQualityDataChange}
                     />
                 </div>
             </div>

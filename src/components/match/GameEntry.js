@@ -10,21 +10,14 @@ function GameEntry (props) {
 const [game, setGame] = useState({"gameType":{"id":props.gameType}, "match":{"id": props.matchId} , "isDoubles": props.isDoubles});
 const winOptions = [{"wins": 0}, {"wins": 1}, {"wins": 2}]
 const gameIndex = props.gameIndex;
-//console.log("props.games == null: " + props.games == null);
-//console.log("props.games[props.gameIndex]: " + props.games[props.gameIndex] == null);
-//console.log("props.games[props.gameIndex] (Game Entry): " + JSON.stringify(props.games[props.gameIndex]));
-//console.log("props.isDoubles (Game Entry): " + (props.isDoubles));
-//console.log("game (Game Entry): " + JSON.stringify(game.isDoubles));
 
 useEffect(() => {
-    //console.log("props.games (GameEntry): " + props.games.length);
+
     let updatedGame = props.games[props.gameIndex];
-    //console.log("updatedGame == null: " + (updatedGame != null));
+
 
     if (updatedGame != null){
-        //console.log("updatedGame.isDoubles: " + (updatedGame.isDoubles));
-        //console.log("updatedGame.doubles: " + (updatedGame.doubles));
-        //updatedGame.isDoubles = props.isDoubles
+
     }
     (props.games != null && props.games[props.gameIndex] != null)
     ?setGame(props.games[props.gameIndex])
