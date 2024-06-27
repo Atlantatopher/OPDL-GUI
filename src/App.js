@@ -17,6 +17,7 @@ import AddSchedulePage from './pages/AddSchedulePage.js';
 import EditMatchPage from './pages/EditMatchPage.js';
 import StandingsPage from './pages/StandingsPage.js';
 import PlayerStatsPage from './pages/PlayerStatsPage.js';
+import PlayerEligibilityPage from './pages/PlayerEligibilityPage.js';
 
 
 
@@ -98,6 +99,11 @@ const seasonId = "2";
                        path="/playerStats"
                        element={<PlayerStatsPage seasonId={seasonId} />}
                     />
+                  <Route
+                    exact
+                    path="/playerEligibility"
+                    element={<PlayerEligibilityPage seasonId={seasonId} />}
+                 />
 
 
 
