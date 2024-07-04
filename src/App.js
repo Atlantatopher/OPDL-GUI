@@ -18,7 +18,7 @@ import EditMatchPage from './pages/EditMatchPage.js';
 import StandingsPage from './pages/StandingsPage.js';
 import PlayerStatsPage from './pages/PlayerStatsPage.js';
 import PlayerEligibilityPage from './pages/PlayerEligibilityPage.js';
-
+import QualityHighlightPage from './pages/QualityHighlightPage.js';
 
 
 function App() {
@@ -103,6 +103,11 @@ const seasonId = "2";
                     exact
                     path="/playerEligibility"
                     element={<PlayerEligibilityPage seasonId={seasonId} />}
+                 />
+                <Route
+                    exact
+                    path="/qualityReport"
+                    element={<QualityHighlightPage seasonId={seasonId} />}
                  />
 
 
