@@ -44,7 +44,7 @@ useEffect(() => {
         <>
             <h1>OPDL Player Eligibility</h1>
             <CurrentSeason seasonId = {props.seasonId}/>
-            <p>As of Week 13</p>
+            <p>As of Week 14</p>
             <p>
                 Here is a list of the people who have not played enough matches to qualify for the playoffs-
                 "Needs Permission" means that you will have to ask GREG CASON for an exception
