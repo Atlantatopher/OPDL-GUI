@@ -29,7 +29,7 @@ useEffect(() => {
          },
          body: JSON.stringify({
            "seasonId": props.seasonId,
-           "weekId": 14
+           "weekId": 15
          }),
        })
          .then((response) => {
@@ -48,7 +48,7 @@ useEffect(() => {
         <>
             <h1>OPDL Standings</h1>
             <CurrentSeason seasonId = {props.seasonId}/>
-            <p>As of Week 14</p>
+            <p>As of Week 15</p>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <table class="table table-striped table-hover">
