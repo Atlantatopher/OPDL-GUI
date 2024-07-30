@@ -24,6 +24,7 @@ import QualityHighlightPage from './pages/QualityHighlightPage.js';
 function App() {
 
 const seasonId = "2";
+const weekNum = "16"
 
 
   return (
@@ -91,23 +92,23 @@ const seasonId = "2";
                   <Route
                      exact
                      path="/standings"
-                     element={<StandingsPage seasonId={seasonId} />}
+                     element={<StandingsPage seasonId={seasonId} weekNum={weekNum} />}
                   />
 
                   <Route
                        exact
                        path="/playerStats"
-                       element={<PlayerStatsPage seasonId={seasonId} />}
+                       element={<PlayerStatsPage seasonId={seasonId} weekNum={weekNum} />}
                     />
                   <Route
                     exact
                     path="/playerEligibility"
-                    element={<PlayerEligibilityPage seasonId={seasonId} />}
+                    element={<PlayerEligibilityPage seasonId={seasonId} weekNum={weekNum} />}
                  />
                 <Route
                     exact
                     path="/qualityReport"
-                    element={<QualityHighlightPage seasonId={seasonId} />}
+                    element={<QualityHighlightPage seasonId={seasonId} weekNum={weekNum} />}
                  />
 
 

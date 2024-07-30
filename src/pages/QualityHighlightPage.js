@@ -22,7 +22,7 @@ function QualityHighlightPage(props) {
         <>
             <h1>OPDL Quality Report</h1>
             <CurrentSeason seasonId = {props.seasonId}/>
-            <p>As of Week 16</p>
+            <p>As of Week {props.weekNum}</p>
             <div class="row justify-content-left">
                 <div class="col-md-6">
                     <TeamQualityPoints/>
