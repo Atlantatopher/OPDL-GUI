@@ -13,6 +13,8 @@ import NineMarks from '../components/quality/NineMarks.js';
 import TonEighty from '../components/quality/TonEighty.js';
 import Corks from '../components/quality/Corks.js';
 import PlayerQuality from '../components/quality/PlayerQuality.js';
+import HighIns from '../components/quality/HighIns.js';
+import HighOuts from '../components/quality/HighOuts.js';
 
 import {useLocation} from 'react-router-dom';
 
@@ -27,11 +29,14 @@ function QualityHighlightPage(props) {
                 <div class="col-md-6">
                     <TeamQualityPoints/>
                     <PlayerQuality/>
+
                 </div>
                 <div class="col-md-6">
                     <NineMarks/>
                     <TonEighty/>
                     <Corks/>
+                    <HighIns seasonId = {props.seasonId}/>
+                    <HighOuts seasonId = {props.seasonId}/>
                 </div>
             </div>
         </>

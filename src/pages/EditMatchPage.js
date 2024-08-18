@@ -11,6 +11,7 @@ import CurrentSeason from '../components/season/CurrentSeason.js';
 import ButtonBar from '../components/utility/ButtonBar.js';
 import GameType from '../components/match/GameType.js';
 import QualityTable from "../components/match/QualityTable.js"
+import HighInOutTable from "../components/match/HighInOutTable.js"
 
 import {useLocation} from 'react-router-dom';
 
@@ -26,6 +27,7 @@ const [match, setMatch] = useState((location.state == null )
 const [homePlayers, setHomePlayers] = useState([]);
 const [awayPlayers, setAwayPlayers] = useState([]);
 const [qualityPoints, setQualityPoints] = useState([]);
+const [highInOuts, setHighInOuts] = useState([]);
 const [games, setGames] = useState([]);
 useEffect(() => {
       fetch('http://localhost:8080/api/v1/player', {
@@ -91,6 +93,23 @@ useEffect(() => {
                 .catch((error) => {
                     console.log('error: ' + error);
                   });
+           fetch('http://localhost:8080/api/v1/highInOuts/match/' + encodeURIComponent(match.id), {
+               method: 'GET',
+               headers: {
+                 Accept: 'application/json',
+                 'Content-Type': 'application/json',
+               }
+             })
+               .then((response) => {
+                  if(!response.ok) throw new Error(response.status);
+                   else return response.json()
+               })
+               .then((data) => {
+                   setHighInOuts(data);
+               })
+               .catch((error) => {
+                   console.log('error: ' + error);
+                 });
 
       fetch('http://localhost:8080/api/v1/game', {
          method: 'POST',
@@ -164,6 +183,37 @@ const handleQualityDataChange = (event, quality, player) => {
 
     //console.log("qualityPoints update: " + JSON.stringify(qualityPoints));
 }
+
+const handleHighInOutDataChange = (event, highInOut, player) => {
+    if(highInOut == null){
+        highInOut = {};
+        highInOut["seasonId"] = match.seasonId;
+        highInOut["player"] = player;
+        highInOut["match"] = match;
+        highInOut[event.target.name] =  event.target.value;
+
+    } else {
+        highInOut[event.target.name] =  event.target.value;
+    }
+
+    let arrayIndex = highInOuts.findIndex(highInOut => {
+        if(highInOut.player.id == player.id){
+            return true;
+        } else {return false;}
+    });
+    let highInOutFound = (arrayIndex == -1)?false:true;
+    if(!highInOutFound){
+        console.log("adding new highInOut to the highInOut array");
+        console.log("new highInOut: " + JSON.stringify(highInOut));
+        setHighInOuts(highInOuts => [...highInOuts, highInOut]);
+    } else  {
+        console.log("Updating Array at index: " + arrayIndex);
+        highInOuts[arrayIndex] = highInOut;
+        setHighInOuts(highInOuts => [...highInOuts]);
+    }
+
+    //console.log("highInOuts update: " + JSON.stringify(highInOuts));
+}
 const saveMatchData = () => {
     let nullFreeGames = games.filter(game => game != null);
     fetch('http://localhost:8080/api/v1/games', {
@@ -192,6 +242,22 @@ const saveMatchData = () => {
              'Content-Type': 'application/json',
            },
            body: JSON.stringify(qualityPoints),
+         })
+           .then((response) => {
+              if(!response.ok) throw new Error(response.status);
+               else return response.json()
+           })
+           .catch((error) => {
+               console.log('error: ' + error);
+             });
+
+    fetch('http://localhost:8080/api/v1/highInOuts/update', {
+           method: 'POST',
+           headers: {
+             Accept: 'application/json',
+             'Content-Type': 'application/json',
+           },
+           body: JSON.stringify(highInOuts),
          })
            .then((response) => {
               if(!response.ok) throw new Error(response.status);
@@ -288,6 +354,25 @@ const saveMatchData = () => {
                         players={awayPlayers}
                         qualities={qualityPoints}
                         onChange={handleQualityDataChange}
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <HighInOutTable
+                        tableName="Home Team"
+                        highInOuts={highInOuts}
+                        players={homePlayers}
+                        onChange={handleHighInOutDataChange}
+
+                    />
+                </div>
+                <div class="col-md-6">
+                    <HighInOutTable
+                        tableName="Away Team"
+                        highInOuts={highInOuts}
+                        players={awayPlayers}
+                        onChange={handleHighInOutDataChange}
                     />
                 </div>
             </div>
