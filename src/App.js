@@ -24,7 +24,7 @@ import QualityHighlightPage from './pages/QualityHighlightPage.js';
 function App() {
 
 const seasonId = "2";
-const weekNum = "18"
+const weekNum = "19"
 
 
   return (
