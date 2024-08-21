@@ -57,6 +57,7 @@ useEffect(() => {
                                 <td scope="col">Rank</td>
                                 <td scope="col">Team</td>
                                 <td scope="col">Games Won</td>
+                                <td scope="col">Total Score</td>
                                 <td scope="col">Games Played</td>
                                 <td scope="col">Win %</td>
                                 <td scope="col">Games Behind</td>
@@ -69,6 +70,7 @@ useEffect(() => {
                                         <td >{index+1}</td>
                                         <td >{teamStanding.team.teamName}</td>
                                         <td >{teamStanding.score}</td>
+                                        <td >{(teamStanding.scoreAdjusted == 0) ? teamStanding.score : teamStanding.scoreAdjusted}</td>
                                         <td >{teamStanding.totalGamesPlayed}</td>
                                         <td >{Math.floor(teamStanding.winPercentage * 100) + "%"}</td>
                                         <td >{(teamStanding.numGamesBehind == 0) ? "None" : teamStanding.numGamesBehind}</td>
