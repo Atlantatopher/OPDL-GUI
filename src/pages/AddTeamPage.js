@@ -24,7 +24,7 @@ const location = useLocation();
 const navigate = useNavigate();
 
 const [pub, setPub] = useState({"id":location.state.barId});
-const [team, setTeam] = useState({"seasonId":props.seasonId});
+const [team, setTeam] = useState({"seasonId":props.seasonId, "homeBar":{"id": location.state.barId}});
 const [players, setPlayers] = useState([]);
 
 const handleSubmit = event => {
