@@ -10,6 +10,7 @@ import {
 import BarsPage from './pages/BarsPage.js';
 import TeamsPage from './pages/TeamsPage.js';
 import PlayersPage from './pages/PlayersPage.js';
+import CaptainsPage from './pages/CaptainsPage.js';
 import SchedulePage from './pages/SchedulePage.js';
 import AddPubPage from './pages/AddPubPage.js';
 import AddTeamPage from './pages/AddTeamPage.js';
@@ -23,8 +24,8 @@ import QualityHighlightPage from './pages/QualityHighlightPage.js';
 
 function App() {
 
-const seasonId = "2";
-const weekNum = "19"
+const seasonId = "3";
+const weekNum = "1"
 
 
   return (
@@ -110,6 +111,12 @@ const weekNum = "19"
                     path="/qualityReport"
                     element={<QualityHighlightPage seasonId={seasonId} weekNum={weekNum} />}
                  />
+
+                <Route
+                     exact
+                     path="/captains"
+                     element={<CaptainsPage seasonId={seasonId} />}
+                  />
 
 
 

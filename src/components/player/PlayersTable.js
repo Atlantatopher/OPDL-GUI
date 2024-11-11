@@ -7,10 +7,7 @@ const [team, setTeam] = useState({id: (props.teamId == null)? null : props.teamI
 
 
 useEffect(() => {
-        console.log("Request Body: " + JSON.stringify({
-                                                  "seasonId": props.seasonId,
-                                                  "team": team
-                                                }));
+    if(props.isCaptains != true){
       fetch('http://localhost:8080/api/v1/player', {
          method: 'POST',
          headers: {
@@ -32,7 +29,31 @@ useEffect(() => {
          .catch((error) => {
              console.log('error: ' + error);
            });
+    } else {
+        fetch('http://localhost:8080/api/v1/captains/' + props.seasonId, {
+         method: 'GET',
+         headers: {
+           Accept: 'application/json',
+           'Content-Type': 'application/json',
+         }
+       })
+         .then((response) => {
+            if(!response.ok) throw new Error(response.status);
+             else return response.json()
+         })
+         .then((data) => {
+             setPlayers(data);
+         })
+         .catch((error) => {
+             console.log('error: ' + error);
+           });
+    }
    }, []);
+
+let colSize = "col-3";
+if(props.isCaptains){
+    colSize = "col-2";
+}
 
     return(
 
@@ -41,18 +62,27 @@ useEffect(() => {
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th class="col-4" scope="col">Player Name</th>
-                            <th class="col-4" scope="col">Player Role</th>
-                            <th class="col-4" scope="col">Eligible for Playoffs</th>
+                            {(props.isCaptains)?<th class={colSize} scope="col">Team</th>:<></>}
+                            <th class={colSize} scope="col">Player Name</th>
+                            <th class={colSize} scope="col">Player Role</th>
+                            <th class={colSize} scope="col">Email</th>
+                            <th class={colSize} scope="col">Phone Number</th>
                         </tr>
                     </thead>
                     <tbody>
                         {players.map((player, index) =>{
+                            let phoneFormatted = ""
+                            if(player.phoneNumber != null){
+                                const numberInput = player.phoneNumber.replace(/[^\d]/g, "");
+                                phoneFormatted = `(${numberInput.slice(0, 3)}) ${numberInput.slice(3,6)}-${numberInput.slice(6, 10)}`;
+                            }
                             return(
                                 <tr>
+                                    {(props.isCaptains)?<td >{player.team.teamName}</td>:<></>}
                                     <td >{player.playerName}</td>
                                     <td >{player.playerType}</td>
-                                    <td >{player.isPlayoffEligible? "Yes": "No"}</td>
+                                    <td >{player.emailAddress}</td>
+                                    <td >{(player.phoneNumber != null)?phoneFormatted:""}</td>
                                 </tr>
                             );
                         })}
