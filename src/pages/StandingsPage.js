@@ -10,6 +10,9 @@ import React, { useState, useEffect } from 'react';
 
 import CurrentSeason from '../components/season/CurrentSeason.js';
 import ButtonBar from '../components/utility/ButtonBar.js';
+import ContactUs from '../components/utility/ContactUs.js';
+
+
 
 import {useLocation} from 'react-router-dom';
 
@@ -46,6 +49,7 @@ useEffect(() => {
 
     return (
         <>
+            <ContactUs/>
             <h1>OPDL Standings</h1>
             <CurrentSeason seasonId = {props.seasonId}/>
             <p>As of Week {props.weekNum}</p>
