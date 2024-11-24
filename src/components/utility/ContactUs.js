@@ -11,14 +11,18 @@ function ContactUs(props) {
 return(
     <>
         <div class="row justify-content-center contactus">
-            <div class="col-4">
-                <img src={Discord_correct} alt="Join Discord Server QR Code"/>
-            </div>
-            <div class="col-4">
-                <img src={FB_QR_Code} alt="Join Facebook QR Code"/>
-            </div>
-            <div class="col-4">
-                <img src={WEB_QR_Code} alt="Website QR Code"/>
+            <div class="col-md-8 col-lg-6">
+                <div class="row">
+                    <div class="col-4">
+                        <img src={Discord_correct} alt="Join Discord Server QR Code"/>
+                    </div>
+                    <div class="col-4">
+                        <img src={FB_QR_Code} alt="Join Facebook QR Code"/>
+                    </div>
+                    <div class="col-4">
+                        <img src={WEB_QR_Code} alt="Website QR Code"/>
+                    </div>
+                </div>
             </div>
         </div>
     </>

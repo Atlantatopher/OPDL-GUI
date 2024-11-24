@@ -4,3 +4,12 @@
         width: auto
     }
 }
+
+@media print{
+    .contactus {
+        IMG {
+            height: 75px;
+            width: auto
+        }
+    }
+}

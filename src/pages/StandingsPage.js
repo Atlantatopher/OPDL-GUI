@@ -11,6 +11,9 @@ import React, { useState, useEffect } from 'react';
 import CurrentSeason from '../components/season/CurrentSeason.js';
 import ButtonBar from '../components/utility/ButtonBar.js';
 import ContactUs from '../components/utility/ContactUs.js';
+import ImportantDates from '../components/events/ImportantDates.js';
+import LocalEvents from '../components/events/LocalEvents.js';
+
 
 
 
@@ -55,7 +58,7 @@ useEffect(() => {
             <p>As of Week {props.weekNum}</p>
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover table-sm">
                         <thead>
                             <tr>
                                 <td scope="col">Rank</td>
@@ -83,6 +86,10 @@ useEffect(() => {
                             })}
                         </tbody>
                     </table>
+                    <div class="row">
+                        <div class="col-6"><ImportantDates/></div>
+                        <div class="col-6"><LocalEvents/></div>
+                    </div>
                 </div>
             </div>
         </>
