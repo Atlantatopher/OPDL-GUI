@@ -15,12 +15,15 @@ return(
                 <div class="row">
                     <div class="col-4">
                         <img src={Discord_correct} alt="Join Discord Server QR Code"/>
+                        <p>Discord</p>
                     </div>
                     <div class="col-4">
                         <img src={FB_QR_Code} alt="Join Facebook QR Code"/>
+                        <p>Facebook</p>
                     </div>
                     <div class="col-4">
                         <img src={WEB_QR_Code} alt="Website QR Code"/>
+                        <p>WWW</p>
                     </div>
                 </div>
             </div>
