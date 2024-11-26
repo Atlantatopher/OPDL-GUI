@@ -41,4 +41,13 @@
     HEADER {
         display:none;
     }
+    .App{
+        BODY{
+            font-size:12px;
+        }
+        TABLE TR TD {
+            padding: 0px;
+        }
+    }
+
 }
