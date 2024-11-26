@@ -49,12 +49,12 @@ useEffect(() => {
 
         <div class="row">
             {schedules.map((schedule, index) =>{
+            let dateFormatted = format(schedule.matchDate, 'MMMM do yyyy');
                 return (
-                    <div class="col-md-6">
-                        <div>Week{schedule.weekId}</div>
-                        <div>{schedule.matchDate}</div>
+                    <div class="col-md-4 col-sm-6">
+                        <div>Week {schedule.weekId} - {dateFormatted}</div>
 
-                        <table class="table">
+                        <table class="table table-sm">
                             <thead>
                                 <tr>
                                     <th class="col-5" scope="col">Home Team</th>
