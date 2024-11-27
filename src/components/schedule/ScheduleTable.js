@@ -49,7 +49,8 @@ useEffect(() => {
 
         <div class="row">
             {schedules.map((schedule, index) =>{
-            let dateFormatted = format(schedule.matchDate, 'MMMM do yyyy');
+            let date = new Date(schedule.matchDate.replace(/-/g, '/'))
+            let dateFormatted = format(date, 'EEEE, MMMM do yyyy');
                 return (
                     <div class="col-md-4 col-sm-6">
                         <div>Week {schedule.weekId} - {dateFormatted}</div>
