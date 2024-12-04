@@ -65,6 +65,32 @@ return(
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-4">
+                    04/14/25
+                </div>
+                <div class="col-8">
+                    OPDL 501 Singles Championship (Bull & Bush)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    04/21/25
+                </div>
+                <div class="col-8">
+                    OPDL Cricket Singles Championship (Bull & Bush)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    TBD
+                </div>
+                <div class="col-8">
+                    OPDL vs GOLD Challenge
+                </div>
+            </div>
         </div>
     </>
    )
