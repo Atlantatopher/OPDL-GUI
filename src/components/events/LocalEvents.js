@@ -25,7 +25,7 @@ return(
 
             <div class="row">
                 <div class="col-12">
-                    Tuesday, G.O.L.D Singles, See Suzzan Hollar
+                    Tuesday, G.O.L.D Singles, See Suzan Hollar
                 </div>
             </div>
 
