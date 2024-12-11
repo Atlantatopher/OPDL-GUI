@@ -58,7 +58,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    04/07/25
+                    04/14/25
                 </div>
                 <div class="col-8">
                     Banquet TBA
@@ -67,7 +67,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    04/14/25
+                    04/21/25
                 </div>
                 <div class="col-8">
                     OPDL 501 Singles Championship (Bull & Bush)
@@ -76,7 +76,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    04/21/25
+                    04/28/25
                 </div>
                 <div class="col-8">
                     OPDL Cricket Singles Championship (Bull & Bush)
