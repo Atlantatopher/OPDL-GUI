@@ -12,7 +12,7 @@ const teams = props.teams == null ? {} : props.teams;
 const numTeams = teams.length;
 const numMatches = Math.ceil(numTeams/2);
 const weekIDLabel = props.weekId+1;
-console.log("props.schedule: "+ JSON.stringify(props.schedule));
+//console.log("props.schedule: "+ JSON.stringify(props.schedule));
 
 useEffect(() => {
     if(props.schedule != null && props.schedule.id != null){

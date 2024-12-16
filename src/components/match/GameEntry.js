@@ -7,7 +7,7 @@ import SelectInput from '../../components/utility/SelectInput.js';
 
 function GameEntry (props) {
 
-const [game, setGame] = useState({"gameType":{"id":props.gameType}, "match":{"id": props.matchId} , "isDoubles": props.isDoubles});
+const [game, setGame] = useState({"gameType":{"id":props.gameType}, "match":{"id": props.matchId} , "doubles": props.isDoubles});
 const winOptions = [{"wins": 0}, {"wins": 1}, {"wins": 2}]
 const gameIndex = props.gameIndex;
 

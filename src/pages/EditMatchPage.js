@@ -73,43 +73,45 @@ useEffect(() => {
            .catch((error) => {
                console.log('error: ' + error);
              });
-           fetch('http://localhost:8080/api/v1/qualities/get', {
-                method: 'POST',
-                headers: {
-                  Accept: 'application/json',
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                      "match":{"id":match.id}
-                      }),
-              })
-                .then((response) => {
-                   if(!response.ok) throw new Error(response.status);
-                    else return response.json()
-                })
-                .then((data) => {
-                    setQualityPoints(data);
-                })
-                .catch((error) => {
-                    console.log('error: ' + error);
-                  });
-           fetch('http://localhost:8080/api/v1/highInOuts/match/' + encodeURIComponent(match.id), {
-               method: 'GET',
-               headers: {
-                 Accept: 'application/json',
-                 'Content-Type': 'application/json',
-               }
-             })
-               .then((response) => {
-                  if(!response.ok) throw new Error(response.status);
-                   else return response.json()
-               })
-               .then((data) => {
-                   setHighInOuts(data);
-               })
-               .catch((error) => {
-                   console.log('error: ' + error);
-                 });
+             if(match.id != null){
+               fetch('http://localhost:8080/api/v1/qualities/get', {
+                    method: 'POST',
+                    headers: {
+                      Accept: 'application/json',
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                          "match":{"id":match.id}
+                          }),
+                  })
+                    .then((response) => {
+                       if(!response.ok) throw new Error(response.status);
+                        else return response.json()
+                    })
+                    .then((data) => {
+                        setQualityPoints(data);
+                    })
+                    .catch((error) => {
+                        console.log('error: ' + error);
+                      });
+               fetch('http://localhost:8080/api/v1/highInOuts/match/' + encodeURIComponent(match.id), {
+                   method: 'GET',
+                   headers: {
+                     Accept: 'application/json',
+                     'Content-Type': 'application/json',
+                   }
+                 })
+                   .then((response) => {
+                      if(!response.ok) throw new Error(response.status);
+                       else return response.json()
+                   })
+                   .then((data) => {
+                       setHighInOuts(data);
+                   })
+                   .catch((error) => {
+                       console.log('error: ' + error);
+                     });
+                 }
 
       fetch('http://localhost:8080/api/v1/game', {
          method: 'POST',
@@ -137,8 +139,9 @@ const handleGameDataChange = (event, game, gameIndex) => {
     let parentGameIndex = 0;
     game[event.target.name] =  event.target.value;
     game["key"] = gameIndex;
+    //console.log("(handleGameDataChange) game: " + JSON.stringify(game));
     let arrayIndex = games.findIndex(parentGame => {
-        if((parentGame.gameType.id == game.gameType.id) && (parentGame.key == gameIndex) ){
+        if((parentGame.gameType.id == game.gameType.id) && (parentGame.doubles == game.doubles) && (parentGame.key == gameIndex) ){
             return true;
         } else {return false;}
     });
@@ -147,7 +150,7 @@ const handleGameDataChange = (event, game, gameIndex) => {
         console.log("adding new Game to the games array");
         setGames(games => [...games, game]);
     } else {
-        console.log("Updating Array at index: " + arrayIndex);
+        //console.log("(handleGameDataChange) Updating Array at index: " + arrayIndex);
         games[arrayIndex] = game;
         setGames(games => [...games]);
     }
@@ -176,7 +179,7 @@ const handleQualityDataChange = (event, quality, player) => {
         console.log("new Quality: " + JSON.stringify(quality));
         setQualityPoints(qualityPoints => [...qualityPoints, quality]);
     } else  {
-        console.log("Updating Array at index: " + arrayIndex);
+        //console.log("(handleQualityDataChange) Updating Array at index: " + arrayIndex);
         qualityPoints[arrayIndex] = quality;
         setQualityPoints(qualityPoints => [...qualityPoints]);
     }
@@ -207,7 +210,7 @@ const handleHighInOutDataChange = (event, highInOut, player) => {
         console.log("new highInOut: " + JSON.stringify(highInOut));
         setHighInOuts(highInOuts => [...highInOuts, highInOut]);
     } else  {
-        console.log("Updating Array at index: " + arrayIndex);
+        //console.log("(handleHighInOutDataChange) Updating Array at index: " + arrayIndex);
         highInOuts[arrayIndex] = highInOut;
         setHighInOuts(highInOuts => [...highInOuts]);
     }
@@ -216,6 +219,7 @@ const handleHighInOutDataChange = (event, highInOut, player) => {
 }
 const saveMatchData = () => {
     let nullFreeGames = games.filter(game => game != null);
+    //console.log("(saveMatchData) nullFreeGames update: " + JSON.stringify(nullFreeGames));
     fetch('http://localhost:8080/api/v1/games', {
        method: 'POST',
        headers: {
