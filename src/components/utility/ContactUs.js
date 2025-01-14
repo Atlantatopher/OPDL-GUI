@@ -3,7 +3,7 @@ import './ContactUs.css';
 
 import Discord_correct from '../images/Discord_correct.png';
 import FB_QR_Code from '../images/FB_QR_Code.png';
-import WEB_QR_Code from '../images/WEB_QR_Code.png';
+import WEB_QR_Code from '../images/opdl.net.png';
 
 function ContactUs(props) {
 
