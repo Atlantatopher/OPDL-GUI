@@ -46,11 +46,11 @@ useEffect(() => {
             <CurrentSeason seasonId = {props.seasonId}/>
             <p>As of Week {props.weekNum}</p>
             <p>
-                Here is a list of the people who have not played enough matches to qualify for the playoffs-
-                "Needs Permission" means that you will have to ask GREG CASON for an exception
-                due to special circumstances that your player could not play in 9 matches that are
-                required to be eligible for the playoffs. *MATCHES* means the weekly matches to be
+                Here is a list of the people who have not played enough matches to qualify for the playoffs.
+                 There are 15 weeks this season so a player must play in a minimum of 8 MATCHES to qualify for Playoffs.
+                 *MATCHES* means the weekly matches to be
                 played, not individual *GAMES* played on any given night.
+                There will be no 33% exception this year.
             </p>
             <div class="row justify-content-center">
                 <div class="col-md-8">
