@@ -27,7 +27,7 @@ import OPDNavbar from './components/utility/Navbar.js';
 function App() {
 
     const seasonId = "3";
-    const weekNum = "15"
+    const weekNum = "16"
         return (
 
         <div className="App">
