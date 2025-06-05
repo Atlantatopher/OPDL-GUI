@@ -13,7 +13,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    11/18/24
+                    06/02/2025
                 </div>
                 <div class="col-8">
                     Regular Season Begins
@@ -22,7 +22,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    03/03/25
+                    09/15/2025
                 </div>
                 <div class="col-8">
                     Regular Season Ends
@@ -31,7 +31,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    03/10/25
+                    09/22/2025
                 </div>
                 <div class="col-8">
                     Makeup Week
@@ -40,7 +40,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    03/24/25
+                    09/29/2025
                 </div>
                 <div class="col-8">
                     Playoffs Begin
@@ -49,7 +49,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    04/07/25
+                    10/13/2025
                 </div>
                 <div class="col-8">
                     Playoffs End
@@ -58,16 +58,16 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    04/14/25
+                    10/20/2025
                 </div>
                 <div class="col-8">
-                    Banquet TBA
+                    Banquet Claddagh Cottage
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-4">
-                    04/21/25
+                    10/27/2025
                 </div>
                 <div class="col-8">
                     OPDL 501 Singles Championship (Bull & Bush)
@@ -76,7 +76,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    04/28/25
+                    11/03/2025
                 </div>
                 <div class="col-8">
                     OPDL Cricket Singles Championship (Bull & Bush)

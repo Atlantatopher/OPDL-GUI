@@ -26,12 +26,12 @@ function QualityHighlightPage(props) {
             <CurrentSeason seasonId = {props.seasonId}/>
             <p>As of Week {props.weekNum}</p>
             <div class="row justify-content-left">
-                <div class="col-md-6">
+                <div class="col-6">
                     <TeamQualityPoints/>
                     <PlayerQuality/>
 
                 </div>
-                <div class="col-md-6">
+                <div class="col-6">
                     <NineMarks/>
                     <TonEighty/>
                     <Corks/>
