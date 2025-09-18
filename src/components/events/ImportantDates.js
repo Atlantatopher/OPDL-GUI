@@ -85,7 +85,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    TBD
+                    11/11/2025
                 </div>
                 <div class="col-8">
                     OPDL vs GOLD Challenge
