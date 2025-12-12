@@ -13,7 +13,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    06/02/2025
+                    12/01/2025
                 </div>
                 <div class="col-8">
                     Regular Season Begins
@@ -22,7 +22,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    09/15/2025
+                    03/16/2026
                 </div>
                 <div class="col-8">
                     Regular Season Ends
@@ -31,7 +31,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    09/22/2025
+                    03/23/2026
                 </div>
                 <div class="col-8">
                     Makeup Week
@@ -40,7 +40,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    09/29/2025
+                    03/30/2026
                 </div>
                 <div class="col-8">
                     Playoffs Begin
@@ -49,7 +49,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    10/13/2025
+                    04/13/2026
                 </div>
                 <div class="col-8">
                     Playoffs End
@@ -58,16 +58,16 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    10/20/2025
+                    04/20/2026
                 </div>
                 <div class="col-8">
-                    Banquet Claddagh Cottage
+                    Banquet Roque Pub
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-4">
-                    10/27/2025
+                    04/27/2026
                 </div>
                 <div class="col-8">
                     OPDL 501 Singles Championship (Bull & Bush)
@@ -76,7 +76,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    11/03/2025
+                    05/04/2026
                 </div>
                 <div class="col-8">
                     OPDL Cricket Singles Championship (Bull & Bush)
@@ -85,7 +85,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    11/11/2025
+                    05/11/2026
                 </div>
                 <div class="col-8">
                     OPDL vs GOLD Challenge
