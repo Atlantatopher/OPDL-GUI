@@ -43,7 +43,7 @@ return(
 
             <div class="row">
                 <div class="col-12">
-                    Saturday, Blind Draw 8 pm at Rockin Rhonda's
+                    Tuesday, Blind Draw 7:30 at St. Andrew's
                 </div>
             </div>
 
