@@ -31,12 +31,6 @@ return(
 
             <div class="row">
                 <div class="col-12">
-                    Wed., Blind Draw 8 pm At Rockin Rhonda's
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
                     Thursday, Blind Draw 7:30 at Bull & Bush
                 </div>
             </div>
