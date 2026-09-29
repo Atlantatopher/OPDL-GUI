@@ -49,7 +49,7 @@ return(
 
             <div class="row">
                 <div class="col-4">
-                    11/26/2026
+                    10/26/2026
                 </div>
                 <div class="col-8">
                     Playoffs End
@@ -88,7 +88,7 @@ return(
                     11/23/2026
                 </div>
                 <div class="col-8">
-                    OPDL vs GOLD Challenge
+                    OPDL vs GOLD Challenge (St. Andrew's)
                 </div>
             </div>
         </div>
